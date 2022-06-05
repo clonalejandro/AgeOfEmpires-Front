@@ -1,0 +1,23 @@
+<div class="container">
+    <header>
+        <h2>Civilizations</h2>
+        <button mat-raised-button color="accent" (click)="toggleShowFavourites()">Show Only Favs ⭐</button>
+        <button mat-raised-button color="basic">Log Out 🚪</button>
+    </header>
+    <div class="civilizations">
+        <mat-card class="civilization-card" *ngFor="let civilization of getCivilizations()">
+            <mat-card-subtitle>{{ civilization.expansion }}</mat-card-subtitle>
+            <mat-card-title>{{ civilization.name }}</mat-card-title>
+            <mat-card-content>
+                <p class="highlighted">{{ civilization.army_type }}</p>
+            </mat-card-content>
+            <mat-divider inset></mat-divider>
+            <mat-card-actions *ngIf="isAuthenticated()">
+                <button mat-icon-button (click)="handleFavourite(civilization.id)">
+                    <mat-icon matSuffix *ngIf="!isFavourite(civilization.id)" class="bordered-star">star_border</mat-icon>
+                    <mat-icon matSuffix *ngIf="isFavourite(civilization.id)" class="filled-star">star_filled</mat-icon>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
