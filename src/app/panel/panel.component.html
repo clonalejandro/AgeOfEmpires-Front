@@ -2,7 +2,7 @@
     <header>
         <h2>Civilizations</h2>
         <button mat-raised-button color="accent" (click)="toggleShowFavourites()">Show Only Favs ⭐</button>
-        <button mat-raised-button color="basic">Log Out 🚪</button>
+        <button mat-raised-button color="basic" (click)="destroySession()">Log Out 🚪</button>
     </header>
     <div class="civilizations">
         <mat-card class="civilization-card" *ngFor="let civilization of getCivilizations()">

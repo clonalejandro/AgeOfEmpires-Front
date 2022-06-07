@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { HttpClientModule } from '@angular/common/http';
 import { PanelComponent } from './panel.component';
 
 @NgModule({
@@ -16,6 +16,7 @@ import { PanelComponent } from './panel.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     MatButtonModule,
     MatIconModule,
     MatCardModule,

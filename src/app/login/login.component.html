@@ -1,21 +1,21 @@
 <div class="container">
-    <form onsubmit="return false">
+    <form onsubmit="return false" [formGroup]="loginForm">
         <div class="filter">
             <h2>Login</h2>
 
             <mat-form-field appearance="standard">
                 <mat-label>Enter your username</mat-label>
-                <input matInput placeholder="Pepa pig" required>
+                <input id="username" name="username" formControlName="username" matInput placeholder="Pepa pig" required>
                 <mat-icon matSuffix>person_filled</mat-icon>
             </mat-form-field>
             <mat-form-field appearance="standard">
                 <mat-label>Enter your password</mat-label>
-                <input matInput [type]="isHide() ? 'password' : 'text'" required>
+                <input id="password" name="password" formControlName="password" matInput [type]="isHide() ? 'password' : 'text'" required>
                 <button class="transparent" mat-icon-button matSuffix (click)="toggleHide()" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="isHide()">
                   <mat-icon>{{isHide() ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
             </mat-form-field>
-            <button class="submit" mat-raised-button color="primary">Log In</button>
+            <button class="submit" mat-raised-button color="primary" (click)="submitLogin()">Log In</button>
             <p class="desc-without-user">Join without user account click <a href="/panel">here</a></p>
         </div>
     </form>
