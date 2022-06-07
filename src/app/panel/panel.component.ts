@@ -43,12 +43,16 @@ export class PanelComponent  {
         err => this.sendError(err)
       );
 
-      this.http.get(`${this.apiUrl}/favourites?token=${this.token}`).subscribe(
-        (favourites: any) => {
-          this.favourites = favourites || [];
-        },
-        err => this.sendError(err)
-      );
+      if (token) {
+        this.http.get(`${this.apiUrl}/favourites?token=${this.token}`).subscribe(
+          (favourites: any) => {
+            this.favourites = favourites || [];
+          },
+          err => {
+              this.sendError(err);
+          }
+        );
+      }
     }
 
     public handleFavourite(civilizationId: number): void {
